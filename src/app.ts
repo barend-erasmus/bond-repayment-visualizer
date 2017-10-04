@@ -1,7 +1,3 @@
-# bond-repayment-visualizer
-
-```javascript
-
 const principal = 1000000;
 const interest = 10.25 / 100;
 const interestInterval = 12;
@@ -16,5 +12,3 @@ const b = Math.pow(1 + i, n) - 1;
 const amount = principal * a / b;
 
 console.log(amount);
-
-```
