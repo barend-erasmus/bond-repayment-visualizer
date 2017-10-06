@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tsc & mocha ./src/**/*.test.js",
     "coverage": "tsc & istanbul cover node_modules/mocha/bin/_mocha --root ./src ./src/**/*.test.js",
-    "start": "tsc & node ./src/app.js",
+    "build": "tsc & browserify ./src/calculator.js --s BondRepaymentVisualizer -o ./src/bundle.js",
     "lint": "tslint ./src/**/*.ts --exclude ./src/**/*.d.ts",
     "sync": "tsc & node ./src/sync.js",
     "deploy": "tsc & istanbul cover node_modules/mocha/bin/_mocha --root ./src ./src/**/*.test.js & ssh-deployer -f deploy.json --host developersworkspace.co.za --username username --password password --workspace ./"
@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/barend-erasmus/bond-repayment-visualizer/issues"
   },
-  "homepage": "https://github.com/barend-erasmus/bond-repayment-visualizer#readme"
+  "homepage": "https://github.com/barend-erasmus/bond-repayment-visualizer#readme",
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.43",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
 }
