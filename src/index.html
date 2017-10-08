@@ -11,27 +11,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 <script src="./bundle.js"></script>
 <script>
-
-    var calculator = new BondRepaymentVisualizer.Calculator();
+    const calculator = new BondRepaymentVisualizer.Calculator();
 
     const amount = 450000;
     const interest = 11.25 / 100;
     const periodInMonths = 20 * 12;
 
-    
+
 
     const dataRemainingBalance1 = calculator.calculateDataSeriesForRemainingBalance(amount, interest, periodInMonths, []);
     const dataTotalPaymentAmount1 = calculator.calculateDataSeriesForTotalMonthlyPayment(amount, interest, periodInMonths, []);
     const dataPaymentAmount1 = calculator.calculateDataSeriesForPaymentAmount(amount, interest, periodInMonths, []);
 
-    const additionalPayments = dataRemainingBalance1.map((x, i) => i <= 24? 5000 : 0);
+    const additionalPayments = dataRemainingBalance1.map((x, i) => i <= 24 ? 5000 : 0);
 
     const dataRemainingBalance2 = calculator.calculateDataSeriesForRemainingBalance(amount, interest, periodInMonths, additionalPayments);
     const dataTotalPaymentAmount2 = calculator.calculateDataSeriesForTotalMonthlyPayment(amount, interest, periodInMonths, additionalPayments);
     const dataPaymentAmount2 = calculator.calculateDataSeriesForPaymentAmount(amount, interest, periodInMonths, additionalPayments);
 
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myLineChart = new Chart(ctx, {
+    const ctx = document.getElementById("myChart").getContext('2d');
+    const chart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: dataRemainingBalance1.map((x, i) => i),
@@ -85,6 +84,7 @@
             }
         }
     });
+
 </script>
 
 </html>
